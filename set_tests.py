@@ -12,6 +12,6 @@ def test_card_invalid_property_rejected():
 
 def test_card_incorrect_length_rejected():
     assert_raises(ValueError, card, '1GD')
-   
-# Tests that remain to be written: 
-# 1GRE - two colours and no shape should raise exception
+
+def test_card_two_of_same_property():
+    assert_raises(ValueError, card, '1GRE')

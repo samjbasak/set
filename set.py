@@ -16,8 +16,17 @@
 
 CARD_ORDERING = '123GRPDOSEHF'
 
+CARD_PROPERTY_MAP = { '1': 'number', '2': 'number', '3': 'number',
+                      'G': 'colour', 'R': 'colour', 'P': 'colour',
+                      'D': 'shape', 'O': 'shape', 'S': 'shape',
+                      'E': 'fill', 'H': 'fill', 'F': 'fill' }
+
 def card(description):
     if len(description) != 4:
+        raise ValueError("Cards must have 4 properties.")
+    if not all([x in CARD_ORDERING for x in description]):
+        raise ValueError("Card must have valid property")
+    if len({CARD_PROPERTY_MAP[x] for x in description}) != 4:
         raise ValueError("Cards must have 4 properties.")
     sorted_description = sorted(
         description,
