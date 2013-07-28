@@ -1,4 +1,4 @@
-from set import card
+from set import card, third_card_in_game_set
 from nose.tools import assert_equal, assert_raises
 
 def test_card_works():
@@ -15,3 +15,7 @@ def test_card_incorrect_length_rejected():
 
 def test_card_two_of_same_property():
     assert_raises(ValueError, card, '1GRE')
+
+def test_third_card_in_game_set():
+    assert_equal(third_card_in_game_set(card('1GDE'),
+        card('2GDE')), card('3GDE'))
