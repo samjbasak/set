@@ -1,4 +1,4 @@
-from set import card, third_card_in_game_set, third_property
+from set import card, third_card_in_game_set, third_property, game_set_on_table
 from nose.tools import assert_equal, assert_raises
 
 
@@ -33,3 +33,23 @@ def test_third_property_correct():
 
 def test_third_property_error():
     assert_raises(ValueError, third_property, '1', 'G')
+
+
+def test_game_set_on_table():
+    assert_equal(
+        game_set_on_table(
+            {card('1GDE'), card('2GDE'), card('3GDE')}
+        ),
+        {card('1GDE'), card('2GDE'), card('3GDE')}
+    )
+
+
+def test_game_set_on_table_extra_cards():
+    assert_equal(
+        game_set_on_table(
+            {card('1GDE'), card('2GDE'), card('3GDE'),
+            card('1RDE'), card('2RDE'), card('3PDE'),   
+            card('1GOE'), card('2GOE'), card('3GSE')}
+        ),
+        {card('1GDE'), card('2GDE'), card('3GDE')}
+    )

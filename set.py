@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import itertools
+
 # Cards are defined with a 4-tuple as follows:
 #
 # (number, colour, shape, fill)
@@ -59,3 +61,12 @@ def third_card_in_game_set(first_card, second_card):
         else:
             third_card.append(third_property(first_card[i], second_card[i]))
     return  tuple(third_card)
+
+
+def game_set_on_table(table):
+    for first_card, second_card in itertools.combinations(table, 2):
+        third_card = third_card_in_game_set(first_card, second_card)
+        if third_card in table:
+            return {first_card, second_card, third_card}
+        else:
+            return None
