@@ -63,23 +63,10 @@ def third_card_in_game_set(first_card, second_card):
     return  tuple(third_card)
 
 
-def game_set_on_table(table):
+def game_sets_on_table(table):
+    all_sets = set()
     for first_card, second_card in itertools.combinations(table, 2):
         third_card = third_card_in_game_set(first_card, second_card)
         if third_card in table:
-            return {first_card, second_card, third_card}
-    return None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            all_sets.add(frozenset({first_card, second_card, third_card}))
+    return all_sets
