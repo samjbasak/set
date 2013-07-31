@@ -48,8 +48,8 @@ def test_game_set_on_table_extra_cards():
     assert_equal(
         game_set_on_table(
             {card('1GDE'), card('2GDE'), card('3GDE'),
-            card('1RDE'), card('2RDE'), card('3PDE'),   
-            card('1GOE'), card('2GOE'), card('3GSE')}
+            card('1RDE'),  
+            card('1GOE'), card('2GOE')}
         ),
         {card('1GDE'), card('2GDE'), card('3GDE')}
     )
