@@ -2,6 +2,8 @@
 
 import itertools
 
+# Add comment
+
 # Cards are defined with a 4-tuple as follows:
 #
 # (number, colour, shape, fill)
